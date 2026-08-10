@@ -16,7 +16,7 @@ source .venv/bin/activate
 
 ### 1.2 Install dependencies
 
-Install everything from the repository-level requirements file:
+Install dependency from the repository-level requirements file:
 
 ```bash
 pip install -r requirements.txt
@@ -24,17 +24,15 @@ pip install -r requirements.txt
 
 ## 2. Harbor Task Execution
 
-The agent benchmark runner lives in `agent-tracer/`. After configuring your model API credentials in the environment or `.env` file, you can launch a small test run with:
+After configuring your model API credentials in the environment or `.env` file, you can launch harbor run with:
 
 ```bash
-cd agent-tracer
-tau2 run \
-  --domain airline \
-  --agent-llm gpt-4.1 \
-  --user-llm gpt-4.1 \
-  --num-trials 1 \
-  --num-tasks 5 \
-  --calculate-uncertainty
+harbor run \
+  --dataset terminal-bench/terminal-bench-2 \
+  --agent terminus2 \
+  --model your_model \
+  --force-build \
+  --yes
 ```
 
 For full benchmark runs, adjust the domain, model names, task IDs, and concurrency settings as needed. Generated trajectories and metrics should be kept outside version control.
@@ -47,7 +45,18 @@ export OPENAI_BASE_URL=YOUR_BASE_URL
 bash run_harbor_uncertainty_agent.sh --dataset PATH_TO_HARBOR_DATASET --model MODEL_NAME --yes
 ```
 
-You can also control the sampling behavior with environment variables such as `UNCERTAINTY_METHOD=trajectory_tau`, `UNCERTAINTY_NUM_SAMPLES=5`, and `UNCERTAINTY_TEMPERATURE=0.7`.
+For uncertainty guided multiple-sampling experiment, you can launch with:
+```bash
+harbor run \
+  --dataset terminal-bench/terminal-bench-2 \
+  --agent-import-path harbor_uncertainty_agent:UncertaintySamplingTerminus2 \
+  --model your_model \
+  --agent-kwarg num_samples=3 \
+  --agent-kwarg uncertainty_method=tracer \
+  --agent-kwarg temperature=0.7 \
+  --force-build \
+  --yes
+```
 
 ## 3. Confidence Analysis
 
