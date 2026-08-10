@@ -1,14 +1,9 @@
 # RUPA
 
+This repository is the official implementation for **From Sequence to Structure: Relational uncertainty Propagation for LLM Agents**
+
 RUPA (Relational Uncertainty Propagation for Agents) is a graph-based uncertainty quantification framework for long-horizon LLM agents.
 
-This repository contains:
-- the core RUPA scoring implementation
-- evaluation scripts for baseline methods
-- prefix-based confidence analysis scripts
-- graph-structure and ablation studies
-- plotting scripts for publication-quality figures
-- the underlying `tau2` agent simulation code used by the evaluation pipeline
 
 ## 1. Environment Setup
 
@@ -82,31 +77,3 @@ python evaluate_prefix_uq_curves.py PATH_TO_JOB_ROOT --mode steps --prefix-steps
 python plot_prefix_uq_curves.py PATH_TO_JOB_ROOT/prefix_uq_curves_percent.json --metric auroc
 python plot_prefix_uq_curves.py PATH_TO_JOB_ROOT/prefix_uq_curves_steps.json --metric auprc
 ```
-
-### 3.4 Graph and ablation studies
-
-```bash
-python evaluate_trajectory_tau_graph_experiments.py PATH_TO_JOB_ROOT
-python evaluate_trajectory_tau_ablation.py PATH_TO_JOB_ROOT
-python evaluate_trajectory_tau_extended_ablation.py PATH_TO_JOB_ROOT
-```
-
-### 3.5 Publication figures
-
-```bash
-python plot_entropy_matched_bins.py PATH_TO_JOB_ROOT/trajectory_tau_graph_experiments_summary.json
-python plot_trajectory_tau_parameter_ablation.py PATH_TO_JOB_ROOT/trajectory_tau_extended_ablation_summary.json
-```
-
-## 4. Repository Hygiene
-
-This repository ignores:
-- `jobs/` and other run outputs
-- logs and temporary files
-- generated figures and intermediate artifacts
-- cache directories such as `__pycache__`, `.pytest_cache`, `.mypy_cache`, and `.ruff_cache`
-
-## 5. Notes
-
-- All uncertainty metrics are reported as failure-detection scores: higher values indicate higher failure risk.
-- Use placeholder paths such as `PATH_TO_JOB_ROOT` when sharing commands publicly.
