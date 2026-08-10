@@ -16,16 +16,10 @@ source .venv/bin/activate
 
 ### 1.2 Install dependencies
 
-Install the `tau2` package in editable mode so that the agent simulator and domain code are available:
+Install everything from the repository-level requirements file:
 
 ```bash
-pip install -e agent-tracer
-```
-
-Install the analysis stack used by the confidence scripts if it is not already present:
-
-```bash
-pip install numpy pandas scikit-learn matplotlib tqdm
+pip install -r requirements.txt
 ```
 
 ## 2. Harbor Task Execution
@@ -44,6 +38,16 @@ tau2 run \
 ```
 
 For full benchmark runs, adjust the domain, model names, task IDs, and concurrency settings as needed. Generated trajectories and metrics should be kept outside version control.
+
+If you want to run the Harbor sampling agent used in this repository, use the wrapper script:
+
+```bash
+export OPENAI_API_KEY=YOUR_KEY
+export OPENAI_BASE_URL=YOUR_BASE_URL
+bash run_harbor_uncertainty_agent.sh --dataset PATH_TO_HARBOR_DATASET --model MODEL_NAME --yes
+```
+
+You can also control the sampling behavior with environment variables such as `UNCERTAINTY_METHOD=trajectory_tau`, `UNCERTAINTY_NUM_SAMPLES=5`, and `UNCERTAINTY_TEMPERATURE=0.7`.
 
 ## 3. Confidence Analysis
 
