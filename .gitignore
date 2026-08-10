@@ -1,0 +1,46 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment secrets
+.env
+.env.*
+
+# Logs and temporary files
+*.log
+*.out
+*.tmp
+*.bak
+*.swp
+
+# Run outputs and intermediate artifacts
+jobs/
+entropy_bins_with_baselines_plot/
+agent-tracer/data/tau2/results/
+agent-tracer/figs/
+agent-tracer/web/
+agent-tracer/CHANGELOG.md
+agent-tracer/RELEASE_NOTES.md
+agent-tracer/.release-template.md
+
+# Nested/local git metadata
+.git/
+agent-tracer/.git/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
