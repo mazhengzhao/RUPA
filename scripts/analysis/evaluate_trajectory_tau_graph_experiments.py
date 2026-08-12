@@ -55,7 +55,7 @@ import evaluate_gaia_prefix_confidence_metrics as prefix_metrics
 
 
 DEFAULT_ROOT = Path("~/jobs/2026-05-16__19-11-56")
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TRAJECTORY_TAU_PATH = PROJECT_ROOT / "agent-tracer" / "src" / "tau2" / "metrics" / "trajectory_tau.py"
 
 

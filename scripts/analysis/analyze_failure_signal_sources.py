@@ -29,6 +29,13 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+EVALUATION_DIR = PROJECT_ROOT / "scripts" / "evaluation"
+if str(EVALUATION_DIR) not in sys.path:
+    sys.path.insert(0, str(EVALUATION_DIR))
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np

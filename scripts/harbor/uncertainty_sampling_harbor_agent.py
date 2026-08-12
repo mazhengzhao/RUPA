@@ -38,7 +38,7 @@ from typing import Any, Optional
 import numpy as np
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TRAJECTORY_TAU_PATH = (
     PROJECT_ROOT / "agent-tracer" / "src" / "tau2" / "metrics" / "trajectory_tau.py"
 )

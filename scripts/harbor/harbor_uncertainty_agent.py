@@ -8,7 +8,7 @@ Use with Harbor's custom agent import path:
 
     harbor run \
       --dataset terminal-bench/terminal-bench-2 \
-      --agent-import-path harbor_uncertainty_agent:UncertaintySamplingTerminus2 \
+      --agent-import-path scripts.harbor.harbor_uncertainty_agent:UncertaintySamplingTerminus2 \
       --model Qwen3.5-27B \
       --agent-kwarg num_samples=5 \
       --agent-kwarg uncertainty_method=trajectory_tau \
@@ -41,7 +41,7 @@ from harbor.llms.base import ContextLengthExceededError, LLMResponse, OutputLeng
 from harbor.llms.chat import Chat
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TRAJECTORY_TAU_PATH = (
     PROJECT_ROOT / "agent-tracer" / "src" / "tau2" / "metrics" / "trajectory_tau.py"
 )

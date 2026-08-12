@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="${PROJECT_ROOT:-${SCRIPT_DIR}}"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "${SCRIPT_DIR}/../.." && pwd)}"
 HARBOR_BIN="${HARBOR_BIN:-harbor}"
 
 if [[ ! -x "${HARBOR_BIN}" ]]; then
@@ -24,7 +24,7 @@ fi
 
 CMD=(
   "${HARBOR_BIN}" run
-  --agent-import-path harbor_uncertainty_agent:UncertaintySamplingTerminus2 \
+  --agent-import-path scripts.harbor.harbor_uncertainty_agent:UncertaintySamplingTerminus2 \
   --agent-timeout-multiplier "${AGENT_TIMEOUT_MULTIPLIER:-4}" \
   --agent-kwarg num_samples="${UNCERTAINTY_NUM_SAMPLES:-5}" \
   --agent-kwarg uncertainty_method="${UNCERTAINTY_METHOD:-trajectory_tau}" \

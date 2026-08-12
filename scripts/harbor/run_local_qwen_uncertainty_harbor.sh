@@ -34,8 +34,8 @@ set -euo pipefail
 #     --yes
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="${PROJECT_ROOT:-${SCRIPT_DIR}}"
-HARBOR_SCRIPT="${HARBOR_SCRIPT:-${PROJECT_ROOT}/run_harbor_uncertainty_agent.sh}"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "${SCRIPT_DIR}/../.." && pwd)}"
+HARBOR_SCRIPT="${HARBOR_SCRIPT:-${PROJECT_ROOT}/scripts/harbor/run_harbor_uncertainty_agent.sh}"
 
 MODEL_PATH="${MODEL_PATH:-}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-Qwen3.5-27B}"

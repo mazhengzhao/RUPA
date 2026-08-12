@@ -47,8 +47,8 @@ from sklearn.metrics import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-PREFIX_MODULE_PATH = PROJECT_ROOT / "evaluate_gaia_prefix_confidence_metrics.py"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PREFIX_MODULE_PATH = Path(__file__).resolve().parent / "evaluate_gaia_prefix_confidence_metrics.py"
 
 
 def load_prefix_module():
