@@ -6,7 +6,9 @@ RUPA (Relational Uncertainty Propagation for Agents) is a graph-based uncertaint
 
 ## Overview
 
-Method overview: [assets/Method.pdf](assets/Method.pdf)
+Method overview ([PDF](assets/Method.pdf)):
+
+![RUPA method overview](assets/Method.png)
 
 Main experimental results:
 
@@ -21,6 +23,7 @@ Main experimental results:
 │       └── trajectory_tau.py      # RUPA graph construction and scoring
 ├── assets/                       # paper figures
 │   ├── Method.pdf
+│   ├── Method.png
 │   └── Result.png
 ├── scripts/
 │   ├── analysis/                 # empirical analysis scripts
@@ -150,31 +153,6 @@ python scripts/plotting/plot_prefix_uq_curves.py \
 python scripts/plotting/plot_prefix_uq_curves.py \
   PATH_TO_JOB_ROOT/prefix_uq_curves_steps.json \
   --metric auprc
-```
-
-### 3.4 Graph and ablation studies
-
-```bash
-python scripts/evaluation/evaluate_trajectory_tau_graph_experiments.py PATH_TO_JOB_ROOT
-python scripts/evaluation/evaluate_trajectory_tau_ablation.py PATH_TO_JOB_ROOT
-python scripts/evaluation/evaluate_trajectory_tau_extended_ablation.py PATH_TO_JOB_ROOT
-```
-
-### 3.5 Paper-style plotting
-
-```bash
-python scripts/plotting/plot_entropy_matched_bins.py \
-  PATH_TO_JOB_ROOT/trajectory_tau_graph_experiments_summary.json
-
-python scripts/plotting/plot_trajectory_tau_parameter_ablation.py \
-  PATH_TO_JOB_ROOT/trajectory_tau_extended_ablation_summary.json
-```
-
-### 3.6 Failure-signal analysis
-
-```bash
-python scripts/analysis/analyze_failure_signal_sources.py PATH_TO_JOB_ROOT
-python scripts/analysis/analyze_structural_failure_signals.py PATH_TO_JOB_ROOT
 ```
 
 ## 4. Notes
